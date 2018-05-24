@@ -1,0 +1,189 @@
+﻿<Controls:MetroWindow x:Class="Spherification.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:cal="http://www.caliburnproject.org"
+        xmlns:local="clr-namespace:Spherification"
+        xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+        Dialog:DialogParticipation.Register="{Binding}"
+        mc:Ignorable="d"
+        KeyUp="keyUp"
+        LeftWindowCommandsOverlayBehavior="Flyouts"
+        Title="SPHERIFICATION" Height="450" Width="800">
+
+
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button Content="SETTINGS" />
+            <Button Command="{Binding createSphereAction}">
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="NEW SPEHERE" />
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+
+    </Controls:MetroWindow.RightWindowCommands>
+
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout Theme="Light" Header="Flyout" Position="Right" Width="700" IsOpen="{Binding isDetailsOpened}">
+
+                <Grid MouseMove="Grid_MouseMove" MouseDown="Grid_MouseDown" MouseUp="Grid_MouseUp" HorizontalAlignment="Right" Background="Black">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="216*"/>
+                        <RowDefinition Height="197*"/>
+                    </Grid.RowDefinitions>
+
+                    <Viewport3D x:Name="details_viewport" Margin="-789,0,333,98.667" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" >
+                        <Viewport3D.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Viewport3D.RenderTransform>
+                        <Viewport3D.Camera>
+                            <PerspectiveCamera 
+                        x:Name="details_camera" FarPlaneDistance="200"
+                    NearPlaneDistance="0" LookDirection="0,0,-10" UpDirection="0,1,0"
+                    Position="0,0,30" FieldOfView="45" />
+                        </Viewport3D.Camera>
+                        <ModelVisual3D>
+                            <ModelVisual3D.Content>
+                                <Model3DGroup x:Name="details_group">
+                                    <AmbientLight Color="DarkGray" />
+                                    <DirectionalLight Color="White" Direction="-5,-5,-7" />
+                                </Model3DGroup>
+
+
+                            </ModelVisual3D.Content>
+                        </ModelVisual3D>
+                    </Viewport3D>
+                    <Label Content="NAME:" HorizontalAlignment="Left" Margin="-604,117,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.444,-0.617" Width="63" Grid.Row="1"/>
+                    <Label Content="SPHERE RADIUS:" HorizontalAlignment="Left" Margin="-407,118,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.444,-0.617" Width="129" Grid.Row="1"/>
+                    <Label Content="POLYGON ACCURASY" HorizontalAlignment="Left" Margin="-235,117,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.444,-0.617" Width="183" Grid.Row="1"/>
+
+                    <DataGrid x:Name="descriptionDatagr" ItemsSource="{Binding Path=activePoints}"
+                      AutoGenerateColumns="False"
+                       VerticalAlignment="Top" Width="322" HorizontalAlignment="Right"
+                      Grid.Row="0"
+                      CanUserReorderColumns="False"
+                      Margin="-319,-7,-3,0"
+                      Height="321"
+                      HeadersVisibility="Column" Grid.RowSpan="2">
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Width="100" Header="x"
+                                Binding="{Binding X}" />
+
+                            <DataGridTextColumn Width="auto" Header="y"
+                                Binding="{Binding Y}" />
+
+                            <DataGridTextColumn Width="auto" Header="z"
+                                Binding="{Binding Z}" />
+
+
+
+
+
+
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Label Content="{Binding activeSphere.name}" HorizontalAlignment="Left" Margin="-619,130,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                    <Label Content="{Binding activeSphere.radius}" HorizontalAlignment="Left" Margin="-278,130,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+                    <Label Content="{Binding activeSphere.accurasy}" HorizontalAlignment="Left" Margin="-47,130,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+
+                </Grid>
+
+            </Controls:Flyout>
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+
+    <Controls:FlipView x:Name="FlipViewTest"
+                   Foreground="{DynamicResource WhiteBrush}"
+                  
+                   >
+        <Controls:FlipView.Items>
+
+            
+
+
+            <Grid Background="Black" MouseWheel="Grid_MouseWheel" MouseMove="Grid_MouseMove">
+
+                <Viewport3D x:Name="viewport" Margin="0,-114,0.333,-114">
+                    <Viewport3D.Camera>
+                        <PerspectiveCamera 
+                    x:Name="camera" FarPlaneDistance="200"
+                NearPlaneDistance="0" LookDirection="0,0,-10" UpDirection="0,1,0"
+                Position="0,0,40" FieldOfView="45" />
+                    </Viewport3D.Camera>
+                    <ModelVisual3D x:Name="model">
+                        <ModelVisual3D.Content>
+                            <Model3DGroup x:Name="group">
+                                <AmbientLight Color="DarkGray" />
+                                <DirectionalLight Color="White" Direction="-5,-5,-7" />
+
+                            </Model3DGroup>
+
+
+                        </ModelVisual3D.Content>
+                    </ModelVisual3D>
+                </Viewport3D>
+
+            </Grid>
+            <Grid>
+                <DataGrid x:Name="dataGrid" ItemsSource="{Binding Path=spheres}"
+                  AutoGenerateColumns="False"
+                  Grid.Row="0"
+                  
+                 
+                  CanUserReorderColumns="False"
+                  HeadersVisibility="Column">
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Width="325" Header="Sphere name"
+                                Binding="{Binding name}" />
+
+                        <DataGridTextColumn  Width="200" Header="Radius"
+                                Binding="{Binding radius}" />
+
+                        <DataGridTextColumn  Width="230"  Header="Accurasy of polygons"
+                                Binding="{Binding accurasy}" />
+
+
+
+
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button CommandParameter="{Binding}" Command="{Binding DataContext.setActiveSphereAction, ElementName=dataGrid}">
+                                        <StackPanel>
+                                            <Image Width="20" Height="20" Source="./res/details-icon.png" />
+
+                                        </StackPanel>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+
+
+
+        </Controls:FlipView.Items>
+    </Controls:FlipView>
+
+
+
+</Controls:MetroWindow>
