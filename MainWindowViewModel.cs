@@ -160,7 +160,9 @@ namespace Spherification
             }
 
             public void generateSphere(Color? color, int radius, int accuracy, String name) {
-                Sphere sphere = sphereService.getSphere(name, radius, accuracy, color ?? (DEFAULT_COLOR));
+
+
+            Sphere sphere = sphereService.getSphere(name, radius, accuracy, color ?? (DEFAULT_COLOR));
 
                 Console.WriteLine("Sphere {0}", sphere);
                 sphereDrawService.draw(sphereContainer, sphere, currentSphereGenerationOffsetX);

@@ -123,3 +123,4 @@ C:\Users\Max\Documents\sem4\visual\courseWork\Spherification\Spherification\obj\
 C:\Users\Max\Documents\sem4\visual\courseWork\Spherification\Spherification\obj\Debug\Spherification.csproj.CopyComplete
 C:\Users\Max\Documents\sem4\visual\courseWork\Spherification\Spherification\obj\Debug\Spherification.exe
 C:\Users\Max\Documents\sem4\visual\courseWork\Spherification\Spherification\obj\Debug\Spherification.pdb
+C:\Users\Max\Documents\sem4\visual\courseWork\Spherification\Spherification\obj\Debug\Spherification.csprojResolveAssemblyReference.cache

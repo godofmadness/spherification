@@ -86,6 +86,9 @@ namespace Spherification {
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "4.0.0.0")]
         public static void Main() {
+            SplashScreen splashScreen = new SplashScreen("res/abstract-geometric-composition-from-chaotic-slow-moving-dots-and-lines-are-pl" +
+                    "aced-in-the-sphere_sx0-mdza_thumbnail-full01[1].png");
+            splashScreen.Show(true);
             Spherification.App app = new Spherification.App();
             app.InitializeComponent();
             app.Run();
