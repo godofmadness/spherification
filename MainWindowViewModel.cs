@@ -1,5 +1,6 @@
 ﻿using MahApps.Metro.Controls.Dialogs;
 using Spherification.src.components.sphere.createspheredialog;
+using Spherification.src.model.system.persistance;
 using Spherification.src.sphere;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace Spherification
         private readonly IDialogCoordinator _dialogCoordinator;
         private SphereService sphereService;
         private SphereDrawService sphereDrawService;
+        private PersistanceService persistanceService;
         private Model3DCollection sphereContainer;
         private Model3DCollection detailsSphereContainer;
 
@@ -42,18 +44,39 @@ namespace Spherification
         {
             // Dialog coordinator provided by Mahapps framework 
             // Either passed into MainViewModel constructor to conform to MVVM:-
-            isDetailsOpened = true;
+          
             _dialogCoordinator = dialogCoordinator;
             sphereService = new SphereService();
             sphereDrawService = new SphereDrawService();
+            persistanceService = new PersistanceService();
             this.sphereContainer = sphereContainer;
             this.detailsSphereContainer = detailsSphereContainer;
-            spheres = new ObservableCollection<Sphere>();
 
-            // or just initialise directly here
-            // _dialogCoordinator = new DialogCoordinator();
+            initSpheresFromApplicationState(PersistanceService.getApplicationState().Spheres);
+
+            // if was loaded from state
+
+            
         }
 
+        private void initSpheresFromApplicationState(ObservableCollection<Sphere> spheres)
+        {
+            this.spheres = PersistanceService.getApplicationState().Spheres;
+
+            if (spheres.Count() > 0)
+            {
+              
+                foreach (Sphere sphere in spheres)
+                {
+                    sphere.setColor((Color)ColorConverter.ConvertFromString(sphere.getColorStr()));
+                        sphereDrawService.draw(sphereContainer, sphere, currentSphereGenerationOffsetX);
+                    currentSphereGenerationOffsetX += sphere.radius + SPHERE_GENERATION_OFFSET_X;
+                }
+
+            }
+
+            Console.WriteLine("initialized state {0}", spheres);
+        }
 
         // handler to notify view when propery changed
         private void NotifyPropertyChanged(String propertyName = "")

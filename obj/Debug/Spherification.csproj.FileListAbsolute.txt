@@ -107,7 +107,6 @@ C:\Users\Max\Documents\sem4\visual\courseWork\Spherification\Spherification\bin\
 C:\Users\Max\Documents\sem4\visual\courseWork\Spherification\Spherification\bin\Debug\ru\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Max\Documents\sem4\visual\courseWork\Spherification\Spherification\bin\Debug\sv\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\Max\Documents\sem4\visual\courseWork\Spherification\Spherification\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
-C:\Users\Max\Documents\sem4\visual\courseWork\Spherification\Spherification\obj\Debug\Spherification.csprojResolveAssemblyReference.cache
 C:\Users\Max\Documents\sem4\visual\courseWork\Spherification\Spherification\obj\Debug\config\DialogResource.baml
 C:\Users\Max\Documents\sem4\visual\courseWork\Spherification\Spherification\obj\Debug\src\components\sphere\createspheredialog\CreateSphereDialog.baml
 C:\Users\Max\Documents\sem4\visual\courseWork\Spherification\Spherification\obj\Debug\src\components\sphere\createspheredialog\CreateSphereDialog.g.cs

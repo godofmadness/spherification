@@ -7,7 +7,7 @@ using System.Windows.Media;
 using System.Windows.Media.Media3D;
 namespace Spherification.src.sphere
 {
-
+    [Serializable]
     // sphere model defines all data known about sphere
     class Sphere
     {
@@ -20,7 +20,9 @@ namespace Spherification.src.sphere
         public int radius { get; set; }
 
         // color
+        [NonSerialized]
         private Color color;
+
         private String colorStr { get; set; }
 
         // all sphere points 
@@ -49,6 +51,16 @@ namespace Spherification.src.sphere
         public void setAccurasy(int accurasy)
         {
             this.accurasy = accurasy;
+        }
+
+        public String getColorStr()
+        {
+            return colorStr;
+        }
+
+        public void setColorStr(String colorStr)
+        {
+            this.colorStr = colorStr;
         }
 
 

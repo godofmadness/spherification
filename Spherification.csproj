@@ -90,9 +90,11 @@
       <DependentUpon>CreateSphereDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="src\components\sphere\createspheredialog\CreateSphereDialogViewModel.cs" />
+    <Compile Include="src\model\ApplicationState.cs" />
     <Compile Include="src\model\sphere\Sphere.cs" />
     <Compile Include="src\components\sphere\SphereDrawService.cs" />
     <Compile Include="src\model\sphere\SphereService.cs" />
+    <Compile Include="src\model\system\persistance\PersistanceService.cs" />
     <Page Include="config\DialogResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
