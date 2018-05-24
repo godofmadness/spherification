@@ -15,7 +15,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using SphereLib;
 using Spherification.src.components.sphere.createspheredialog;
+using Spherification.src.model.sphere;
 using Spherification.src.sphere;
 
 namespace Spherification
@@ -27,7 +29,7 @@ namespace Spherification
     {
 
         private SphereDrawService sphereDrawService;
-        private SphereService sphereService;
+        private SphereClientService sphereClientService;
         // Reference to the geometry for later use
 
         private bool mDown;
@@ -51,7 +53,7 @@ namespace Spherification
         {
             InitializeComponent();
             sphereDrawService = new SphereDrawService();
-            sphereService = new SphereService();
+            sphereClientService = new SphereClientService();
 
 
 

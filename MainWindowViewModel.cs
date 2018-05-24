@@ -1,5 +1,7 @@
 ﻿using MahApps.Metro.Controls.Dialogs;
+using SphereLib;
 using Spherification.src.components.sphere.createspheredialog;
+using Spherification.src.model.sphere;
 using Spherification.src.model.system.persistance;
 using Spherification.src.sphere;
 using System;
@@ -21,7 +23,7 @@ namespace Spherification
         private int SPHERE_GENERATION_OFFSET_X = 5;
 
         private readonly IDialogCoordinator _dialogCoordinator;
-        private SphereService sphereService;
+        private SphereClientService sphereService;
         private SphereDrawService sphereDrawService;
         private PersistanceService persistanceService;
         private Model3DCollection sphereContainer;
@@ -46,7 +48,7 @@ namespace Spherification
             // Either passed into MainViewModel constructor to conform to MVVM:-
           
             _dialogCoordinator = dialogCoordinator;
-            sphereService = new SphereService();
+            sphereService = new SphereClientService();
             sphereDrawService = new SphereDrawService();
             persistanceService = new PersistanceService();
             this.sphereContainer = sphereContainer;
@@ -162,9 +164,14 @@ namespace Spherification
             public void generateSphere(Color? color, int radius, int accuracy, String name) {
 
 
-            Sphere sphere = sphereService.getSphere(name, radius, accuracy, color ?? (DEFAULT_COLOR));
+                Sphere sphere = sphereService.getSphere(name, radius, accuracy, color ?? (DEFAULT_COLOR));
 
-                Console.WriteLine("Sphere {0}", sphere);
+
+              
+
+
+
+            Console.WriteLine("Sphere {0}", sphere);
                 sphereDrawService.draw(sphereContainer, sphere, currentSphereGenerationOffsetX);
                 spheres.Add(sphere);
                 

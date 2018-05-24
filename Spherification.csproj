@@ -43,6 +43,10 @@
     <Reference Include="MahApps.Metro, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MahApps.Metro.1.6.4\lib\net46\MahApps.Metro.dll</HintPath>
     </Reference>
+    <Reference Include="SphereLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\source\repos\SphereLib\SphereLib\bin\Debug\netstandard2.0\SphereLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -91,9 +95,11 @@
     </Compile>
     <Compile Include="src\components\sphere\createspheredialog\CreateSphereDialogViewModel.cs" />
     <Compile Include="src\model\ApplicationState.cs" />
-    <Compile Include="src\model\sphere\Sphere.cs" />
     <Compile Include="src\components\sphere\SphereDrawService.cs" />
     <Compile Include="src\model\sphere\SphereService.cs" />
+    <Compile Include="src\model\system\comproccessor\ComGUID.cs" />
+    <Compile Include="src\model\system\dependencyloader\DynamicDependencyLoader.cs" />
+    <Compile Include="src\model\system\dependencyloader\NativeLoader.cs" />
     <Compile Include="src\model\system\persistance\PersistanceService.cs" />
     <Page Include="config\DialogResource.xaml">
       <SubType>Designer</SubType>

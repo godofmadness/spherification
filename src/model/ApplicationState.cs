@@ -1,4 +1,5 @@
-﻿using Spherification.src.sphere;
+﻿using SphereLib;
+using Spherification.src.sphere;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,6 +19,7 @@ namespace Spherification.src.model
      
         public ApplicationState()
         {
+            
             Spheres = new ObservableCollection<Sphere>();
         }
     }
